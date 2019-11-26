@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
     @Bean
-    public Person person() {
+    public Person person1() {
         return new Person("李四", 18);
     }
 }
