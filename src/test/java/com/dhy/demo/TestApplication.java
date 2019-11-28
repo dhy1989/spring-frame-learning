@@ -14,20 +14,46 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class TestApplication {
     @Test
-    public void testXml(){
+    public void testXml() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
         Person person = (Person) applicationContext.getBean("person");
         System.out.println(person);
     }
 
     @Test
-    public void testAnonation(){
-        ApplicationContext applicationContext=new AnnotationConfigApplicationContext(AppConfig.class);
+    public void testAnonation() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         for (String beanDefinitionName : beanDefinitionNames) {
             System.out.println(beanDefinitionName);
         }
         Person person = applicationContext.getBean(Person.class);
         System.out.println(person);
+    }
+
+    @Test
+    public void testComponentScan() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
+    }
+
+    @Test
+    public void testScope(){
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        Person person2 = (Person) applicationContext.getBean("person2");
+        System.out.println(person2);
+
+    }
+
+    @Test
+    public void tetCondition(){
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
     }
 }
