@@ -33,11 +33,7 @@ public class TestApplication {
 
     @Test
     public void testComponentScan() {
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
-        for (String beanDefinitionName : beanDefinitionNames) {
-            System.out.println(beanDefinitionName);
-        }
+        printBeans();
     }
 
     @Test
@@ -50,10 +46,19 @@ public class TestApplication {
 
     @Test
     public void tetCondition(){
+        printBeans();
+    }
+
+    private void printBeans() {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         for (String beanDefinitionName : beanDefinitionNames) {
             System.out.println(beanDefinitionName);
         }
+    }
+
+    @Test
+    public void testImport(){
+        printBeans();
     }
 }
