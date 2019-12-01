@@ -60,5 +60,10 @@ public class TestApplication {
     @Test
     public void testImport(){
         printBeans();
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        Object colorFactoryBean = applicationContext.getBean("colorFactoryBean");
+        Object bean = applicationContext.getBean("&colorFactoryBean");
+        System.out.println("colorFactoryBean的类型是:"+colorFactoryBean.getClass());
+        System.out.println(bean.getClass());
     }
 }

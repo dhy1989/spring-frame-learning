@@ -45,4 +45,9 @@ public class AppConfig {
     public Person person4(){
         return new Person("Linux",50);
     }
+
+    @Bean
+    public ColorFactoryBean colorFactoryBean(){
+        return new ColorFactoryBean();
+    }
 }
