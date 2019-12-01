@@ -17,7 +17,7 @@ import org.springframework.stereotype.Controller;
  *     @Conditional 定义类加载条件,需要实现Condition接口,如果配置在类上,当前配置类里边所有实例都要进行判断
  * </p>
  */
-@Import({Color.class,Red.class,MyImportSelector.class})
+@Import({Color.class,Red.class,MyImportSelector.class,MyImportBeanDefinitionRegistrar.class})
 @Configuration
 @ComponentScan(value="com.dhy.demo",excludeFilters ={@ComponentScan.Filter(type= FilterType.ANNOTATION,classes = {Controller.class})} )
 public class AppConfig {
