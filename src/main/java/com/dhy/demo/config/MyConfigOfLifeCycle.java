@@ -2,6 +2,7 @@ package com.dhy.demo.config;
 
 import com.dhy.demo.entity.Car;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Scope;
  * @date 2019/12/1
  */
 @Configuration
+@ComponentScan("com.dhy.demo.entity")
 public class MyConfigOfLifeCycle {
 
     /**
