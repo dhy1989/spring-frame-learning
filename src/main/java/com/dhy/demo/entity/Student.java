@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @date 2019/12/2
  */
 @Component
-@PropertySource(value = {"classpath:/student.properties"})
+@PropertySource(value = {"classpath:/student.properties"},encoding="UTF-8")
 public class Student {
     @Value("张三")
     private String name;
