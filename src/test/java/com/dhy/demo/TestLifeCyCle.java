@@ -1,9 +1,12 @@
 package com.dhy.demo;
 
+import com.dhy.demo.config.MainConfProfile;
 import com.dhy.demo.config.MyConfigOfLifeCycle;
+import com.dhy.demo.entity.Yellow;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.Environment;
 
 /**
  * @author dinghy
@@ -16,4 +19,26 @@ public class TestLifeCyCle{
         System.out.println("容器创建完成");
     }
 
+    @Test
+    public void test2(){
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfProfile.class);
+        String[] beanNamesForType = applicationContext.getBeanNamesForType(Yellow.class);
+        for (String s : beanNamesForType) {
+            System.out.println(s);
+        }
+    }
+
+    @Test
+    public  void test3(){
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+        Environment environment = applicationContext.getEnvironment();
+        environment.acceptsProfiles("test");
+        applicationContext.register(MainConfProfile.class);
+        applicationContext.refresh();
+        String[] beanNamesForType = applicationContext.getBeanNamesForType(Yellow.class);
+        for (String s : beanNamesForType) {
+            System.out.println(s);
+        }
+        applicationContext.close();
+    }
 }
