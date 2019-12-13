@@ -6,6 +6,7 @@ import com.dhy.demo.entity.Yellow;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 
 /**
@@ -31,8 +32,8 @@ public class TestLifeCyCle{
     @Test
     public  void test3(){
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-        Environment environment = applicationContext.getEnvironment();
-        environment.acceptsProfiles("test");
+        ConfigurableEnvironment environment = applicationContext.getEnvironment();
+        environment.setActiveProfiles("test","dev");
         applicationContext.register(MainConfProfile.class);
         applicationContext.refresh();
         String[] beanNamesForType = applicationContext.getBeanNamesForType(Yellow.class);
