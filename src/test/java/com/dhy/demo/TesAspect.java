@@ -13,8 +13,8 @@ public class TesAspect {
     @Test
     public void  testAop(){
         AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(MainConfigAop.class);
-        MathCalculator mathCalculator = (MathCalculator) annotationConfigApplicationContext.getBean("mathCalculator");
-        mathCalculator.div(2,1);
+        MathCalculator mathCalculator = annotationConfigApplicationContext.getBean(MathCalculator.class);
+        mathCalculator.div(5,3);
         annotationConfigApplicationContext.close();
     }
 }

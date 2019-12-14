@@ -15,7 +15,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  *  1.导入aop模块
  *  2.定义逻辑类MathCaculator,在业务执行的之前,之后,抛异常都打印日志
  *  3.定义日志切面类LogAspects
- *  4.切面通知加上对应注解
+ *  4.切面通知加上对应注解,注意环绕型切面的返回值不能为 void ，应该为 Object
  *  5.将切面类和业务类注入容器
  *  6.给切面类加上@Aspect标识
  *  7.启动切面功能@EnableAspectJAutoProxy

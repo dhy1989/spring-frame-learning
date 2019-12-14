@@ -15,8 +15,10 @@ public class LogAspects {
      *@Author dinghy
      *@Date 2019/12/14 18:00
      */
-    @Pointcut("execution(public int com.dhy.demo.aop.MathCaculator.*(..))")
-    public void pointCut(){}
+    @Pointcut("execution(public int com.dhy.demo.aop.MathCalculator.*(..))")
+    public int pointCut(){
+        return 1;
+    }
 
     @Before("pointCut()")
     public void logStart(){
@@ -34,8 +36,8 @@ public class LogAspects {
     public void logReturn(){
         System.out.println("返回结果.......");
     }
-    @Around("pointCut()")
-    public void logAround(){
-        System.out.println("环绕............");
-    }
+//    @Around("pointCut()")
+//    public void logAround(){
+//        System.out.println("环绕............");
+//    }
 }
