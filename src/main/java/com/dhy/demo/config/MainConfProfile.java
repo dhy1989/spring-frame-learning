@@ -16,7 +16,6 @@ import org.springframework.context.annotation.Profile;
  * </p>
  */
 @Configuration
-@ComponentScan("com.dhy.demo.config")
 public class MainConfProfile {
 
     @Profile("dev")
