@@ -26,7 +26,7 @@ public class LogAspects {
     }
     @After("pointCut()")
     public void logEnd(){
-        System.out.println("触之后......");
+        System.out.println("之后......");
     }
     @AfterThrowing("pointCut()")
     public  void logExecption(){
