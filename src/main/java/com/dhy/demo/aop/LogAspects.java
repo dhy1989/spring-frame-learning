@@ -1,6 +1,8 @@
 package com.dhy.demo.aop;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
+
 
 /**
  * @author dinghy
@@ -16,8 +18,8 @@ public class LogAspects {
      *@Date 2019/12/14 18:00
      */
     @Pointcut("execution(public int com.dhy.demo.aop.MathCalculator.*(..))")
-    public int pointCut(){
-        return 1;
+    public void pointCut(){
+
     }
 
     @Before("pointCut()")
@@ -25,16 +27,16 @@ public class LogAspects {
         System.out.println("之前...........");
     }
     @After("pointCut()")
-    public void logEnd(){
-        System.out.println("之后......");
+    public void logEnd(JoinPoint joinPoint){
+        System.out.println("之后......"+joinPoint.getSignature().getName());
     }
-    @AfterThrowing("pointCut()")
-    public  void logExecption(){
-        System.out.println("异常........");
+    @AfterThrowing(value = "pointCut()",throwing ="exception" )
+    public  void logExecption(Exception exception){
+        System.out.println("异常........"+exception);
     }
-    @AfterReturning("pointCut()")
-    public void logReturn(){
-        System.out.println("返回结果.......");
+    @AfterReturning(value = "pointCut()",returning = "object")
+    public void logReturn(Object object){
+        System.out.println("返回结果......."+object);
     }
 //    @Around("pointCut()")
 //    public void logAround(){

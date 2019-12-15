@@ -14,7 +14,7 @@ public class TesAspect {
     public void  testAop(){
         AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(MainConfigAop.class);
         MathCalculator mathCalculator = annotationConfigApplicationContext.getBean(MathCalculator.class);
-        mathCalculator.div(5,3);
+        mathCalculator.div(5,1);
         annotationConfigApplicationContext.close();
     }
 }
