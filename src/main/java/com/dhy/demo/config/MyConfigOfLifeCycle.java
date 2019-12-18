@@ -16,8 +16,8 @@ import org.springframework.context.annotation.Scope;
  *      @PostConstruct,在bean创建完成并且属性赋值完成,来执行此方法
  *      @PreDestroy,在容器销毁benan之前执行
  *    4)BeanPostProcessor:
- *        postProcessBeforeInitialization在初始化之前工作
- *        postProcessAfterInitialization在初始化之后工作
+ *        postProcessBeforeInitialization在init之前工作
+ *        postProcessAfterInitialization在init之后工作
  * </p>
  */
 @Configuration
