@@ -24,6 +24,9 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  *     1.将业务逻辑组件和切面类都注入到容器中,告诉spring是哪个切面类
  *     2.在切面类上的每一个方法上标注通知注解,告诉spring何时运行(切入点表达式)
  *     3.开启基于注解的aop模式
+ *
+ *     BeanPostProcessor 在对象创建完成,初始化前后调用
+ *     InstantiationAwareBeanPostProcessor  在bean实例之间先尝试用后置处理器返回对象
  * </p>
  */
 @EnableAspectJAutoProxy
