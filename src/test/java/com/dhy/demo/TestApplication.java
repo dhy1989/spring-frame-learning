@@ -25,10 +25,8 @@ public class TestApplication {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         for (String beanDefinitionName : beanDefinitionNames) {
-            System.out.println(beanDefinitionName);
+            System.out.println("****"+beanDefinitionName);
         }
-        Person person = applicationContext.getBean(Person.class);
-        System.out.println(person);
     }
 
     @Test
